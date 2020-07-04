@@ -1,0 +1,54 @@
+There can be project 4.
+Project 3 deadline april 4th or may 4th.
+
+Project-3:-
+mealamount-100 rows
+mealdata - 51 rows
+take 51 rows in mealamount and ignore rest.
+
+Ground truth:-
+all values are less than equal to 100 grams,so form 6 clusters.
+
+Feature extraction:-
+Change features
+Goal - determine meal size.
+features which proposinatly increase with mean in take.
+normalize max value with min value.
+(max value - cgm(t=0)) - good feature.
+
+more meal more insulin, which decreases glucose value.
+CGM velocity for first 30 to 45 min.
+first 6-10 samples.
+
+more calories more time to stabilize so more width.
+
+PCA is not mandatory.
+
+We are working on real world example so we dont know how many features to use or what is good accuracy. Complexity of project is very high.
+
+not all the features work.
+
+If the cgm vlaues is decreasing it is a fake meal. For fake meal we need to extract width by width from threshold and t=0.  
+
+if DBSCAN got 3 clusters take largest do biescting k means, or largest cluster do DBSCAN.
+
+We can have noise points. we will have noise points.
+
+Use ground truth to decide which cluster it belongs.
+What if there are two majority.
+Two ways- Just choose one or equally divide.
+If two clusters have same majority. combine and then divide the clusters or keep one cluster empty.
+
+To check accuracy we need to do KNN validation.
+80% data we got clusters.
+take remaining 20% data use some distance metric. Calculate euclidian distance with k nearest examples by using features, Then figure out which one is the majority and add it to that cluster. Check it with ground truth.
+
+Calculate (correct prediction/all data).
+
+Grading mechanism:-
+2 scripts - 1st figures out cluster of 80%, 2nd script KNN which returns 100*2 clusters.
+sir has ground truth based on accuracy he gives score.
+
+KNN has to be done for 20% also.
+
+We need to do SSe only to divide clusters in DBSCAN.
